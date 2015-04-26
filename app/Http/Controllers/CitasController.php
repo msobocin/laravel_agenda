@@ -14,7 +14,8 @@ class CitasController extends Controller {
 	 */
 	public function index()
 	{
-        return view('citas.index');
+        $citas = App\Cita::all();
+        return view('citas.index', compact('citas'));
 	}
 
 	/**
@@ -24,8 +25,8 @@ class CitasController extends Controller {
 	 */
 	public function create()
 	{
-		//
-	}
+        return view('citas.create');
+    }
 
 	/**
 	 * Store a newly created resource in storage.
@@ -43,9 +44,9 @@ class CitasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Cita $cita)
 	{
-		//
+        return view('citas.show', compact('cita'));
 	}
 
 	/**
@@ -54,9 +55,9 @@ class CitasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Cita $cita)
 	{
-		//
+        return view('citas.show', compact('cita'));
 	}
 
 	/**

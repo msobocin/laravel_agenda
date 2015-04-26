@@ -12,9 +12,9 @@ class ContactosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Cita $cita)
 	{
-		//
+        return view('contactos.index', compact('cita'));
 	}
 
 	/**
@@ -22,9 +22,9 @@ class ContactosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Cita $cita)
 	{
-		//
+        return view('contactos.create', compact('cita'));
 	}
 
 	/**
@@ -43,9 +43,9 @@ class ContactosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Cita $cita, Contacto $contacto)
 	{
-		//
+        return view('contactos.show', compact('cita', 'contacto'));
 	}
 
 	/**
@@ -54,9 +54,9 @@ class ContactosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Cita $cita, Contacto $contacto)
 	{
-		//
+        return view('contactos.edit', compact('cita', 'contacto'));
 	}
 
 	/**

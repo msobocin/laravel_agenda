@@ -1,5 +1,15 @@
 @extends('app')
 
 @section('content')
-    This is my /resources/views/citas/index.blade.php file!
+    <h2>citas</h2>
+
+    @if ( !$citas->count() )
+        You have no projects
+    @else
+        <ul>
+            @foreach( $citas as $cita )
+                <li><a href="{{ route('citas.show', $cita->slug) }}">{{ $cita->titol }}</a></li>
+            @endforeach
+        </ul>
+    @endif
 @endsection
