@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Cita;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,7 @@ class CitasController extends Controller {
 	 */
 	public function index()
 	{
-        $citas = App\Cita::all();
+        $citas = Cita::all();
         return view('citas.index', compact('citas'));
 	}
 
