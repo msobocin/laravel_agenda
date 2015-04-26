@@ -97,7 +97,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 	 *
 	 * @var string
 	 */
-	protected $environmentFile = '.env.backup';
+	protected $environmentFile = '.env';
 
 	/**
 	 * Create a new Illuminate application instance.
@@ -354,7 +354,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 	 */
 	public function environmentFile()
 	{
-		return $this->environmentFile ?: '.env.backup';
+		return $this->environmentFile ?: '.env';
 	}
 
 	/**

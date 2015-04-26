@@ -2,7 +2,7 @@
 /**
  * Dotenv
  *
- * Loads a `.env.backup` file in the given directory and sets the environment vars
+ * Loads a `.env` file in the given directory and sets the environment vars
  */
 class Dotenv
 {
@@ -13,12 +13,12 @@ class Dotenv
     protected static $immutable = true;
 
     /**
-     * Load `.env.backup` file in given directory
+     * Load `.env` file in given directory
      */
-    public static function load($path, $file = '.env.backup')
+    public static function load($path, $file = '.env')
     {
         if (!is_string($file)) {
-            $file = '.env.backup';
+            $file = '.env';
         }
 
         $filePath = rtrim($path, '/') . '/' . $file;

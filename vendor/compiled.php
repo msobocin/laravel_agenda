@@ -1279,7 +1279,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     protected $loadedProviders = array();
     protected $deferredServices = array();
     protected $storagePath;
-    protected $environmentFile = '.env.backup';
+    protected $environmentFile = '.env';
     public function __construct($basePath = null)
     {
         $this->registerBaseBindings();
@@ -1383,7 +1383,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
     }
     public function environmentFile()
     {
-        return $this->environmentFile ?: '.env.backup';
+        return $this->environmentFile ?: '.env';
     }
     public function environment()
     {
