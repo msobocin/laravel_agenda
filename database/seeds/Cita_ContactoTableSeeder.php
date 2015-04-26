@@ -11,8 +11,8 @@ class Cita_ContactoTableSeeder extends Seeder {
 
         $cita_contacto = array(
             ['cita_id' => 1, 'contacto_id' => 1, 'created_at' => new DateTime, 'updated_at' => new DateTime],
-            ['cita_id' => 2, 'contacto_id' => 1, 'created_at' => new DateTime, 'updated_at' => new DateTime],
-            ['cita_id' => 3, 'contacto_id' => 2, 'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['cita_id' => 1, 'contacto_id' => 2, 'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['cita_id' => 2, 'contacto_id' => 2, 'created_at' => new DateTime, 'updated_at' => new DateTime],
         );
 
         // Uncomment the below to run the seeder
