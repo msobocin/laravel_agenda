@@ -2,6 +2,8 @@
 
 use App\Cita;
 use App\Contacto;
+use Input;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -34,9 +36,13 @@ class ContactosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Cita $cita)
 	{
-		//
+        $input = Input::all();
+        $input['cita_id'] = $cita->id;
+        Contacto::create( $input );
+
+        return Redirect::route('citas.show', $cita->slug)->with('message', 'Contacto created.');
 	}
 
 	/**
@@ -67,9 +73,12 @@ class ContactosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Cita $cita, Contacto $contacto)
 	{
-		//
+        $input = array_except(Input::all(), '_method');
+        $contacto->update($input);
+
+        return Redirect::route('citas.contactos.show', [$cita->slug, $contacto->slug])->with('message', 'Contacto updated.');
 	}
 
 	/**
@@ -78,9 +87,11 @@ class ContactosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Cita $cita, Contacto $contacto)
 	{
-		//
+        $contacto->delete();
+
+        return Redirect::route('citas.show', $cita->slug)->with('message', 'Contacto deleted.');
 	}
 
 }

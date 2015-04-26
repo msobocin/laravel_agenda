@@ -53,7 +53,17 @@
 		</div>
 	</nav>
 
-	@yield('content')
+    <div class="content">
+        @if (Session::has('message'))
+            <div class="flash alert-info">
+                <p>{{ Session::get('message') }}</p>
+            </div>
+        @endif
+
+        @yield('content')
+    </div>
+
+	{{--@yield('content')--}}
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

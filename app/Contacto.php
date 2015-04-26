@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contacto extends Model {
 
+    protected $guarded = [];
+
     public function citas()
     {
         return $this->belongsToMany('App\Cita');

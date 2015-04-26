@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Cita;
+use Input;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -36,7 +38,10 @@ class CitasController extends Controller {
 	 */
 	public function store()
 	{
-		//
+        $input = Input::all();
+        Cita::create( $input );
+
+        return Redirect::route('citas.index')->with('message', 'Cita created');
 	}
 
 	/**
@@ -67,9 +72,12 @@ class CitasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Cita $cita)
 	{
-		//
+        $input = array_except(Input::all(), '_method');
+        $cita->update($input);
+
+        return Redirect::route('citas.show', $cita->slug)->with('message', 'Cita updated.');
 	}
 
 	/**
@@ -78,9 +86,11 @@ class CitasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Cita $cita)
 	{
-		//
+        $cita->delete();
+
+        return Redirect::route('citas.index')->with('message', 'Cita deleted.');
 	}
 
 }
