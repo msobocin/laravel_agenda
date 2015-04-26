@@ -10,6 +10,8 @@ return array(
     'CitasTableSeeder' => $baseDir . '/database/seeds/CitasTableSeeder.php',
     'ContactosTableSeeder' => $baseDir . '/database/seeds/ContactosTableSeeder.php',
     'CreateCitasAndContactosTables' => $baseDir . '/database/migrations/2015_04_26_140037_create_citas_and_contactos_tables.php',
+    'CreateCitasTable' => $baseDir . '/database/migrations/2015_04_26_142054_create_citas_table.php',
+    'CreateContactosTable' => $baseDir . '/database/migrations/2015_04_26_142100_create_contactos_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

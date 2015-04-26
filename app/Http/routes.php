@@ -11,7 +11,11 @@
 |
 */
 
+Route::model('contactos', 'Contacto');
+Route::model('citas', 'Cita');
+
 Route::get('/', 'WelcomeController@index');
+Route::get('welcome', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -19,3 +23,14 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::bind('contactos', function($value, $route) {
+    return App\Contacto::whereSlug($value)->first();
+});
+Route::bind('citas', function($value, $route) {
+    return App\Cita::whereSlug($value)->first();
+});
+
+Route::resource('citas', 'CitasController');
+//Route::resource('contactos', 'ContactosController');
+Route::resource('citas.contactos', 'ContactosController');
