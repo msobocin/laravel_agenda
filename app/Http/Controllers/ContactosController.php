@@ -39,9 +39,12 @@ class ContactosController extends Controller {
 	public function store(Cita $cita)
 	{
         $input = Input::all();
-        $input['cita_id'] = $cita->id;
-        Contacto::create( $input );
+//        $input['cita_id'] = $cita->id;
+        $citaAux = Cita::find($cita->id);
 
+        $contactoAux = Contacto::create( $input );
+
+        $citaAux->contactos()->attach($contactoAux->id);
         return Redirect::route('citas.show', $cita->slug)->with('message', 'Contacto created.');
 	}
 
