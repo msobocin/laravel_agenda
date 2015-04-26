@@ -12783,8 +12783,7 @@ class LineFormatter extends NormalizerFormatter
             return $str;
         }
         return strtr($str, array('
-' => ' ', '
-' => ' ', '
+' => ' ', '' => ' ', '
 ' => ' '));
     }
 }
