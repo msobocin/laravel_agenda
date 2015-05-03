@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Cita;
+use App\Contacto;
 use Input;
 use Redirect;
 use App\Http\Requests;
@@ -92,5 +93,13 @@ class CitasController extends Controller {
 
         return Redirect::route('citas.index')->with('message', 'Cita deleted.');
 	}
+
+    public function addContactos(Cita $cita)
+    {
+        $contactos = Contacto::all();
+
+
+        return view('citas.add', compact('cita','contactos'));
+    }
 
 }

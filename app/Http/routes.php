@@ -34,3 +34,5 @@ Route::bind('citas', function($value, $route) {
 Route::resource('citas', 'CitasController');
 //Route::resource('contactos', 'ContactosController');
 Route::resource('citas.contactos', 'ContactosController');
+Route::resource('contactos', 'ContactosController');
+Route::get('citas/{citas}/add', ['uses' => 'CitasController@addContactos', 'as' => 'citas.add']);

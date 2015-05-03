@@ -18,7 +18,9 @@ class ContactosController extends Controller {
 	 */
 	public function index(Cita $cita)
 	{
-        return view('contactos.index', compact('cita'));
+        $contactos = Contacto::all();
+//        return view('contactos.index', compact('cita'));
+        return view('contactos.index', compact('contactos'));
 	}
 
 	/**
