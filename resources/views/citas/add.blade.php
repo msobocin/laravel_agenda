@@ -1,8 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h2>{{ $cita->titol }}</h2>
-    <h1>wtf</h1>
+    <h2>{{ $cita->titol }} - {!! Lang::get('agenda.addContact') !!}</h2>
 
     @if ( !$contactos->count() )
         Your cita has no contactos.
@@ -10,21 +9,18 @@
         <ul>
             @foreach( $contactos as $contacto )
                 <li>
-                    {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('citas.contactos.destroy', $cita->slug, $contacto->slug))) !!}
+                    {!! Form::model($contacto, ['method' => 'PATCH', 'route' => ['citas.contactos.added', $cita->slug, $contacto->slug]]) !!}
                     <a href="{{ route('citas.contactos.show', [$cita->slug, $contacto->slug]) }}">{{ $contacto->nom }}</a>
-                    (
-                    {!! link_to_route('citas.contactos.edit', 'Edit', array($cita->slug, $contacto->slug), array('class' => 'btn btn-info')) !!},
-
-                    {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
-                    )
+                    {!! Form::submit(Lang::get('agenda.add'), array('class' => 'btn btn-info')) !!}
                     {!! Form::close() !!}
+
                 </li>
             @endforeach
         </ul>
     @endif
 
     <p>
-        {!! link_to_route('citas.index', 'Back to Citas') !!} |
-        {!! link_to_route('citas.contactos.create', 'Create Contacto', $cita->slug) !!}
+        {!! link_to_route('citas.index', Lang::get('agenda.back')) !!} |
+        {!! link_to_route('citas.contactos.create', Lang::get('agenda.create.contact'), $cita->slug) !!}
     </p>
 @endsection

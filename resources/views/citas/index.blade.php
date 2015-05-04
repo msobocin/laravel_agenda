@@ -1,10 +1,10 @@
 @extends('app')
 
 @section('content')
-    <h2>Citas</h2>
+    <h2>{!! Lang::get('agenda.citas') !!}</h2>
 
     @if ( !$citas->count() )
-        You have no citas
+        {!! Lang::get('agenda.noMeet') !!}
     @else
         <ul>
             @foreach( $citas as $cita )
@@ -12,8 +12,8 @@
                     {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('citas.destroy', $cita->slug))) !!}
                     <a href="{{ route('citas.show', $cita->slug) }}">{{ $cita->titol }}</a>
                     (
-                    {!! link_to_route('citas.edit', 'Edit', array($cita->slug), array('class' => 'btn btn-info')) !!},
-                    {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+                    {!! link_to_route('citas.edit', Lang::get('agenda.edit'), array($cita->slug), array('class' => 'btn btn-info')) !!},
+                    {!! Form::submit(Lang::get('agenda.delete'), array('class' => 'btn btn-danger')) !!}
                     )
                     {!! Form::close() !!}
                 </li>
@@ -22,6 +22,6 @@
     @endif
 
     <p>
-        {!! link_to_route('citas.create', 'Create Cita') !!}
+        {!! link_to_route('citas.create', Lang::get('agenda.create.cita')) !!}
     </p>
 @endsection

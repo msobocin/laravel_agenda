@@ -1,5 +1,5 @@
 <div class="form-group">
-    {!! Form::label('nom', 'Nom:') !!}
+    {!! Form::label('nom', Lang::get('agenda.name').':') !!}
     {!! Form::text('nom') !!}
 </div>
 

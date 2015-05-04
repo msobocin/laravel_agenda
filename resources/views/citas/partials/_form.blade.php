@@ -1,5 +1,5 @@
 <div class="form-group">
-    {!! Form::label('titol', 'Titol:') !!}
+    {!! Form::label('titol', Lang::get('agenda.title').":") !!}
     {!! Form::text('titol') !!}
 </div>
 <div class="form-group">
@@ -7,15 +7,15 @@
     {!! Form::text('slug') !!}
 </div>
 <div class="form-group">
-    {!! Form::label('data', 'Data:') !!}
+    {!! Form::label('data', Lang::get('agenda.date').':') !!}
     {!! Form::input('date', 'data') !!}
 </div>
 <div class="form-group">
-    {!! Form::label('lloc', 'Lloc:') !!}
+    {!! Form::label('lloc', Lang::get('agenda.place').':') !!}
     {!! Form::text('lloc') !!}
 </div>
 <div class="form-group">
-    {!! Form::label('descripcio', 'Descripcio:') !!}
+    {!! Form::label('descripcio', Lang::get('agenda.description').':') !!}
     {!! Form::textarea('descripcio') !!}
 </div>
 <div class="form-group">

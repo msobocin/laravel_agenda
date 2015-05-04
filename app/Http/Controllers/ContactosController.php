@@ -99,4 +99,13 @@ class ContactosController extends Controller {
         return Redirect::route('citas.show', $cita->slug)->with('message', 'Contacto deleted.');
 	}
 
+    public function added(Cita $cita, Contacto $contacto)
+    {
+        $citaAux = Cita::find($cita->id);
+        $contactoAux = Contacto::find($contacto->id);
+        
+        $citaAux->contactos()->attach($contacto->id);
+        return Redirect::route('citas.show', $cita->slug)->with('message', 'Contacto added.');
+    }
+
 }

@@ -50,8 +50,8 @@ class CreateCitasAndContactosTables extends Migration {
      */
     public function down()
     {
-        Schema::drop('citas');
-        Schema::drop('contactos');
         Schema::drop('cita_contacto');
+        Schema::drop('contactos');
+        Schema::drop('citas');
     }
 }
