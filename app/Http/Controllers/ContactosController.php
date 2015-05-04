@@ -103,7 +103,7 @@ class ContactosController extends Controller {
     {
         $citaAux = Cita::find($cita->id);
         $contactoAux = Contacto::find($contacto->id);
-        
+
         $citaAux->contactos()->attach($contacto->id);
         return Redirect::route('citas.show', $cita->slug)->with('message', 'Contacto added.');
     }
